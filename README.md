@@ -1,4 +1,4 @@
-# ProjectSapphire
+# Project Sapphire
 Role-playing game engine using the LWJGL 3. Lets see how it goes!
 
 Utility files are copied from "Lets make flappy bird!" video on theChernoProject's channel found here:
