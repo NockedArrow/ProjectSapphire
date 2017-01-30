@@ -16,8 +16,8 @@ public class Main implements Runnable {
 
 	private Thread thread;
 
-	public final int width= 400;
-	public final int height= 400;
+	public final int width= 640;
+	public final int height= 640;
 	private long window;
 	public EntityManager entityManager;
 

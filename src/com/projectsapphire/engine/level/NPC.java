@@ -14,7 +14,7 @@ public class NPC extends Entity{
 		y += SPEED * Math.sin(Math.toRadians(angle));
 
 		if(isNotInside())
-			angle += (float) (180*Math.random() + 1.0f);
+			angle += 60;//(float) (180*Math.random() + 1.0f);
 
 		if(angle > 360.0f)
 			angle -= 360.0f;

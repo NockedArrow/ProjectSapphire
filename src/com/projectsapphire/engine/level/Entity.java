@@ -11,9 +11,10 @@ public class Entity {
 	protected float x;
 	protected float y;
 	protected float angle;
+	private int entityID;
 	private final float RADIUS = 0.05f;
 	protected final float SPEED = 0.01f;
-	protected final float BOUND = 1.0f;
+	protected final float BOUND = 1.0f-0.05f;
 
 	private VertexArray background;
 	protected Texture bgTexture;
@@ -50,7 +51,7 @@ public class Entity {
 		bgTexture.bind();
 		Shader.BG.enable();
 		background.bind();
-		Shader.BG.setUniformMat4f("vw_matrix", Matrix4f.translate(new Vector3f(x, y, 0.0f)));
+		Shader.BG.setUniformMat4f("vw_matrix", Matrix4f.translate(new Vector3f(x, y, 0.5f)));
 		background.draw();
 		Shader.BG.disable();
 		bgTexture.unbind();
@@ -61,5 +62,13 @@ public class Entity {
 			return true;
 		else 
 			return false;
+	}
+
+	public int getEntityID() {
+		return entityID;
+	}
+
+	public void setEntityID(int entityID) {
+		this.entityID = entityID + 1;
 	}
 }

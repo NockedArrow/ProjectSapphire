@@ -11,8 +11,10 @@ public class EntityManager {
 		
 		this.npcCOUNT = npcCount - 1;
 		npc = new NPC[npcCOUNT];
-		for (int i = 0; i < npcCOUNT; i++)
+		for (int i = 0; i < npcCOUNT; i++) {
 			npc[i] = new NPC();
+			npc[i].setEntityID(i);;
+		}
 	}
 
 	public void render() {
@@ -22,6 +24,7 @@ public class EntityManager {
 		for (Entity entity : npc){
 			entity.update();
 			entity.render();
+			System.out.println(entity.getEntityID());
 		}
 	}
 
@@ -33,5 +36,9 @@ public class EntityManager {
 			}
 		}
 		return count + 1;
+	}
+	
+	public boolean checkCollision(Entity target1, Entity target2) {
+		return false;
 	}
 }
