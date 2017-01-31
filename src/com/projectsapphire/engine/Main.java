@@ -43,7 +43,7 @@ public class Main implements Runnable {
 		Shader.BG.setUniformMat4f("pr_matrix", pr_matrix);
 		Shader.BG.setUniform1i("tex", 1);
 
-		entityManager = new EntityManager(2);
+		entityManager = new EntityManager(20);
 	}
 
 	public void run() {

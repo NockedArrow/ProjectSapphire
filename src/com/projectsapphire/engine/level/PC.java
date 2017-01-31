@@ -6,27 +6,31 @@ import com.projectsapphire.engine.input.Input;
 
 public class PC extends Entity{
 
-	private float pcSPEED = 0.04f;
+	private float pcSPEED = 0.01f;
+	
+	public PC() {
+		RADIUS = 0.1f;
+	}
 
 	public void update() {
 
 		if(Input.isKeyDown(GLFW_KEY_W)){
-			y += pcSPEED;
-			bgTexture.setTexture("res/box.png");
+			location.y += pcSPEED;
+			//bgTexture.setTexture("res/box.png");
 		}
-		else if(Input.isKeyDown(GLFW_KEY_S)){
-			y -= pcSPEED;
-			bgTexture.setTexture("res/box.png");
+		if(Input.isKeyDown(GLFW_KEY_S)){
+			location.y -= pcSPEED;
+			//bgTexture.setTexture("res/box.png");
 		}	
-		else if(Input.isKeyDown(GLFW_KEY_A)){
-			x -= pcSPEED;
-			bgTexture.setTexture("res/box.png");
+		if(Input.isKeyDown(GLFW_KEY_A)){
+			location.x -= pcSPEED;
+			//bgTexture.setTexture("res/box.png");
 		}
-		else if(Input.isKeyDown(GLFW_KEY_D)){
-			x += pcSPEED;
-			bgTexture.setTexture("res/box.png");
+		if(Input.isKeyDown(GLFW_KEY_D)){
+			location.x += pcSPEED;
+			//bgTexture.setTexture("res/box.png");
 		}
-		else
-			bgTexture.setTexture("res/circle.png");
+		//else
+			//bgTexture.setTexture("res/circle.png");
 	}
 }

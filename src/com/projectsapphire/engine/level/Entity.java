@@ -8,23 +8,22 @@ import com.projectsapphire.engine.maths.Vector3f;
 
 public class Entity {
 
-	protected float x;
-	protected float y;
+	protected Vector3f location; 
 	protected float angle;
 	private int entityID;
-	private final float RADIUS = 0.05f;
+	protected float RADIUS = 0.05f;
 	protected final float SPEED = 0.01f;
-	protected final float BOUND = 1.0f-0.05f;
+	protected final float BOUND = 1.0f-getRADIUS();
 
 	private VertexArray background;
 	protected Texture bgTexture;
 
 	public Entity() {
 		float[] vertices = new float[] {
-				-RADIUS, RADIUS, 0.0f,
-				-RADIUS, -RADIUS, 0.0f,
-				RADIUS, -RADIUS, 0.0f,
-				RADIUS, RADIUS, 0.0f
+				-getRADIUS(), getRADIUS(), 0.0f,
+				-getRADIUS(), -getRADIUS(), 0.0f,
+				getRADIUS(), -getRADIUS(), 0.0f,
+				getRADIUS(), getRADIUS(), 0.0f
 		};
 
 		byte[] indices = new byte[] {
@@ -41,6 +40,8 @@ public class Entity {
 
 		background = new VertexArray(vertices, indices, tcs);
 		bgTexture = new Texture("res/circle.png");
+
+		location = new Vector3f();
 	}
 
 	public void update() {
@@ -51,14 +52,14 @@ public class Entity {
 		bgTexture.bind();
 		Shader.BG.enable();
 		background.bind();
-		Shader.BG.setUniformMat4f("vw_matrix", Matrix4f.translate(new Vector3f(x, y, 0.5f)));
+		Shader.BG.setUniformMat4f("vw_matrix", Matrix4f.translate(location));
 		background.draw();
 		Shader.BG.disable();
 		bgTexture.unbind();
 	}
 
 	public boolean isNotInside() {
-		if((x > BOUND)||(y > BOUND)||(x < -BOUND)||( y < -BOUND))
+		if((location.x > BOUND)||(location.y > BOUND)||(location.x < -BOUND)||( location.y < -BOUND))
 			return true;
 		else 
 			return false;
@@ -70,5 +71,25 @@ public class Entity {
 
 	public void setEntityID(int entityID) {
 		this.entityID = entityID + 1;
+	}
+
+	public Vector3f getLocation() {
+		return location;
+	}	
+
+	public void setLocation(float x, float y, float z) {
+		location.x = x;
+		location.y = y;
+		location.z = z;
+	}
+	
+	public void addLocation(float x, float y, float z) {
+		location.x += x;
+		location.y += y;
+		location.z += z;
+	}
+
+	public float getRADIUS() {
+		return RADIUS;
 	}
 }
