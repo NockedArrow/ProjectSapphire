@@ -9,8 +9,11 @@ public class Relations {
 	}
 	
 	public static float distance(Entity target1, Entity target2) {
-		//System.out.println(target1.getLocation().x + ", " + target1.getLocation().y + ", " + target2.getLocation().x + ", " + target2.getLocation().y);
 		return (float) Math.sqrt(sqr(target1.getLocation().y - target2.getLocation().y) + sqr(target1.getLocation().x - target2.getLocation().x));
+	}
+	
+	public static float angle(Entity target1, Entity target2) {
+		return (float) Math.ToDegrees(Math.stan((target1.getLocation().y - target2.getLocation().y) / (target1.getLocation().x - target2.getLocation().x))));
 	}
 	
 	public static boolean checkCollision(Entity target1, Entity target2) {
