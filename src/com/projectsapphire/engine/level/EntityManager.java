@@ -23,11 +23,23 @@ public class EntityManager {
 		pc.update();
 		pc.render();
 
-		for (Entity entity : npc){
-			if(Relations.checkCollision(entity, pc))
-				((NPC) entity).collided();
-			entity.update();
-			entity.render();
+		if(npcCOUNT >= 2)
+			for (Entity entity1 : npc) {
+				for (Entity entity2 : npc){
+					if(entity1.getEntityID() != entity2.getEntityID())
+						if(Relations.checkCollision(entity1, entity2)){
+							((NPC) entity1).collided();
+							((NPC) entity2).collided();
+						}
+					if(Relations.checkCollision(entity1, pc))
+						((NPC) entity1).collided();
+				}
+			}
+
+
+		for (Entity entity1 : npc) {
+			entity1.update();
+			entity1.render();
 		}
 	}
 

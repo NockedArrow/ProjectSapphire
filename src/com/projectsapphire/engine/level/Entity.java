@@ -11,9 +11,9 @@ public class Entity {
 	protected Vector3f location; 
 	protected float angle;
 	private int entityID;
-	protected float RADIUS = 0.05f;
+	private final float RADIUS = 0.05f;
 	protected final float SPEED = 0.01f;
-	protected final float BOUND = 1.0f-getRADIUS();
+	protected final float BOUND = 0.5f-getRADIUS();
 
 	private VertexArray background;
 	protected Texture bgTexture;

@@ -12,7 +12,7 @@ public class NPC extends Entity{
 		addLocation(SPEED * (float) Math.cos(Math.toRadians(angle)), SPEED * (float) Math.sin(Math.toRadians(angle)), 0.0f);
 
 		if(isNotInside())
-			collided();//(float) (180*Math.random() + 1.0f);
+			collided();
 
 		if(angle > 360.0f)
 			angle -= 360.0f;
@@ -21,6 +21,6 @@ public class NPC extends Entity{
 	}
 	
 	public void collided() {
-		angle += 60;//(float) (180*Math.random() + 1.0f);
+		angle += (float) (180*Math.random() + 1.0f);
 	}
 }

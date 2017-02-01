@@ -9,7 +9,7 @@ public class PC extends Entity{
 	private float pcSPEED = 0.01f;
 	
 	public PC() {
-		RADIUS = 0.1f;
+		//PC constructor stub
 	}
 
 	public void update() {
