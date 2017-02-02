@@ -21,6 +21,6 @@ public class NPC extends Entity{
 	}
 	
 	public void collided() {
-		angle += (float) (180*Math.random() + 1.0f);
+		angle = (float) (360*Math.random() + 1.0f);
 	}
 }

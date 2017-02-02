@@ -11,6 +11,7 @@ import com.projectsapphire.engine.graphics.Shader;
 import com.projectsapphire.engine.input.Input;
 import com.projectsapphire.engine.level.EntityManager;
 import com.projectsapphire.engine.maths.Matrix4f;
+import com.projectsapphire.engine.maths.Relations;
 
 public class Main implements Runnable {
 
@@ -43,7 +44,7 @@ public class Main implements Runnable {
 		Shader.BG.setUniformMat4f("pr_matrix", pr_matrix);
 		Shader.BG.setUniform1i("tex", 1);
 
-		entityManager = new EntityManager(10);
+		entityManager = new EntityManager(1);
 	}
 
 	public void run() {
@@ -53,7 +54,7 @@ public class Main implements Runnable {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
 			entityManager.render();
-			glfwSetWindowTitle(window, "2D Physics test: " + entityManager.countInside());
+			glfwSetWindowTitle(window, "2D Physics test: " + entityManager.npcCOUNT);
 			glfwSwapBuffers(window);
 		}	
 		glfwDestroyWindow(window);
