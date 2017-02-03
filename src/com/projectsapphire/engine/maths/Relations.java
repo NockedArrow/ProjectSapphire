@@ -1,6 +1,6 @@
 package com.projectsapphire.engine.maths;
 
-import com.projectsapphire.engine.level.Entity;
+import com.projectsapphire.level.Entity;
 
 public class Relations {
 
