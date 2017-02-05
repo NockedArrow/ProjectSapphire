@@ -19,7 +19,8 @@ public class Relations {
 			return 90;
 	}
 
+	@SuppressWarnings("static-access")
 	public static boolean checkCollision(Entity target1, Entity target2) {
-		return (distance(target1, target2) < target1.getRADIUS() + target2.getRADIUS());
+		return (distance(target1, target2) < target1.RADIUS + target2.RADIUS);
 	}
 }

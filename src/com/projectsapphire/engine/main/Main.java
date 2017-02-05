@@ -8,8 +8,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 import org.lwjgl.opengl.GL;
 
 import com.projectsapphire.engine.graphics.Shader;
-import com.projectsapphire.engine.input.Input;
 import com.projectsapphire.engine.maths.Matrix4f;
+import com.projectsapphire.engine.utils.Input;
 import com.projectsapphire.level.EntityManager;
 
 public class Main implements Runnable {
@@ -53,7 +53,7 @@ public class Main implements Runnable {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
 			entityManager.render();
-			glfwSetWindowTitle(window, "2D Physics test: " + entityManager.npcCOUNT);
+			glfwSetWindowTitle(window, "2D Physics test: " + entityManager.pc.getControl());
 			glfwSwapBuffers(window);
 		}	
 		glfwDestroyWindow(window);

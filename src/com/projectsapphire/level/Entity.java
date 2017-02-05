@@ -8,22 +8,22 @@ import com.projectsapphire.engine.maths.Vector3f;
 
 public class Entity {
 
-	protected Vector3f location; 
-	protected float angle;
+	private float angle;
+	private float speed = 0.01f;
+	protected Vector3f location;
 	private int entityID;
-	private final float RADIUS = 0.05f;
-	protected final float SPEED = 0.01f;
-	protected final float BOUND = 0.5f-getRADIUS();
+	public static final float RADIUS = 0.05f;
+	public static final float BOUND = 0.5f - RADIUS;
 
 	private VertexArray background;
 	protected Texture bgTexture;
 
 	public Entity() {
 		float[] vertices = new float[] {
-				-getRADIUS(), getRADIUS(), 0.0f,
-				-getRADIUS(), -getRADIUS(), 0.0f,
-				getRADIUS(), -getRADIUS(), 0.0f,
-				getRADIUS(), getRADIUS(), 0.0f
+				-RADIUS, RADIUS, 0.0f,
+				-RADIUS, -RADIUS, 0.0f,
+				RADIUS, -RADIUS, 0.0f,
+				RADIUS, RADIUS, 0.0f
 		};
 
 		byte[] indices = new byte[] {
@@ -76,7 +76,7 @@ public class Entity {
 	public Vector3f getLocation() {
 		return location;
 	}	
-
+	
 	public void setLocation(float x, float y, float z) {
 		location.x = x;
 		location.y = y;
@@ -88,8 +88,20 @@ public class Entity {
 		location.y += y;
 		location.z += z;
 	}
-
-	public float getRADIUS() {
-		return RADIUS;
+	
+	public float getAngle() {
+		return angle;
+	}
+	
+	public void setAngle(float angle) {
+		this.angle = angle;
+	}
+	
+	public void addAngle(float angle) {
+		this.angle += angle;
+	}
+	
+	public float getSpeed() {
+		return speed;
 	}
 }

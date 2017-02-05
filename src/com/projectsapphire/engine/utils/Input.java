@@ -1,4 +1,4 @@
-package com.projectsapphire.engine.input;
+package com.projectsapphire.engine.utils;
 
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWKeyCallback;

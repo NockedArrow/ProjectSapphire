@@ -2,35 +2,53 @@ package com.projectsapphire.level;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-import com.projectsapphire.engine.input.Input;
+import com.projectsapphire.engine.utils.Input;
 
-public class PC extends Entity{
+public class PC extends Entity {
 
-	private float pcSPEED = 0.01f;
-	
+	private int control;
+
 	public PC() {
-		//PC constructor stub
+		control = 0;
 	}
 
 	public void update() {
+		if(Input.isKeyDown(GLFW_KEY_W)) 
+			controlLocation(0);	//bgTexture.setTexture("res/box.png");
+		if(Input.isKeyDown(GLFW_KEY_A)) 
+			controlLocation(1);
+		if(Input.isKeyDown(GLFW_KEY_S)) 
+			controlLocation(2);
+		if(Input.isKeyDown(GLFW_KEY_D)) 
+			controlLocation(3);
 
-		if(Input.isKeyDown(GLFW_KEY_W)){
-			location.y += pcSPEED;
-			//bgTexture.setTexture("res/box.png");
+		if(Input.isKeyDown(GLFW_KEY_E))
+			control = (control + 1) % 2;
+	}
+
+	public int getControl() {
+		return control;
+	}
+
+	public void controlLocation(int key) {
+		if(control == 0) {
+			if(key == 0)
+				addLocation(0, getSpeed(), 0);
+			if(key == 1)
+				addLocation(-getSpeed(), 0, 0);
+			if(key == 2)
+				addLocation(0, -getSpeed(), 0);
+			if(key == 3)
+				addLocation(getSpeed(), 0, 0);
 		}
-		if(Input.isKeyDown(GLFW_KEY_S)){
-			location.y -= pcSPEED;
-			//bgTexture.setTexture("res/box.png");
-		}	
-		if(Input.isKeyDown(GLFW_KEY_A)){
-			location.x -= pcSPEED;
-			//bgTexture.setTexture("res/box.png");
+
+		if(control == 1) {
+			if(key == 0)
+				addLocation(getSpeed() * (float) Math.cos(Math.toRadians(getAngle())), getSpeed() * (float) Math.sin(Math.toRadians(getAngle())), 0.0f);
+			if(key == 1)
+				addAngle(5.0f);
+			if(key == 3)
+				addAngle(-5.0f);
 		}
-		if(Input.isKeyDown(GLFW_KEY_D)){
-			location.x += pcSPEED;
-			//bgTexture.setTexture("res/box.png");
-		}
-		//else
-			//bgTexture.setTexture("res/circle.png");
 	}
 }
