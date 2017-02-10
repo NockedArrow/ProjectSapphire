@@ -13,9 +13,9 @@ public class PC extends Entity {
 	}
 
 	public void update() {
-		if(Input.isKeyDown(GLFW_KEY_W)) 
+		if(Input.isKeyDown(GLFW_KEY_LEFT)) 
 			controlLocation(0);	//bgTexture.setTexture("res/box.png");
-		if(Input.isKeyDown(GLFW_KEY_A)) 
+		if(Input.isKeyDown(GLFW_KEY_RIGHT)) 
 			controlLocation(1);
 		if(Input.isKeyDown(GLFW_KEY_S)) 
 			controlLocation(2);
